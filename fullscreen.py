@@ -1,4 +1,5 @@
 import cv2
+import numpy as np
 import screeninfo
 import os
 
@@ -20,8 +21,13 @@ class FullScreen:
             import subprocess
             subprocess.call(["/usr/bin/osascript", "-e", 'tell app "Finder" to set frontmost of process "Python" to true'])
 
+        img_dummy = np.zeros((self.height, self.width), dtype=np.uint8)
+        self.imshow(img_dummy)
+        cv2.waitKey(1)
+
     def imshow(self, image):
-        image = cv2.resize(image, (self.width, self.height), interpolation=cv2.INTER_NEAREST)
+        if image.shape[0]!=self.height or image.shape[1]!=self.width:
+            image = cv2.resize(image, (self.width, self.height), interpolation=cv2.INTER_NEAREST)
         cv2.imshow(self.name, image)
 
     def destroyWindow(self):
@@ -34,7 +40,6 @@ def main():
     width = win.width
     height = win.height
 
-    import numpy as np
     image = np.fromfunction(lambda y, x, c: x/width*255*(c==1)+y/height*255*(c==2), (height, width, 3)).astype(np.uint8)
 
     win.imshow(image)
