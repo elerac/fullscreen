@@ -34,13 +34,23 @@ class FullScreen:
         cv2.destroyWindow(self.name)
 
 def main():
-    monitor_id = 0
+    import argparse
+    parser = argparse.ArgumentParser()
+    parser.add_argument("-f", "--file", type=str, default=None, help="Image file path")
+    parser.add_argument("-i", "--id", type=int, default=0, help="Monitor ID")
+    args = parser.parse_args()
+
+    monitor_id = args.id
     win = FullScreen(monitor_id)
 
     width = win.width
     height = win.height
 
-    image = np.fromfunction(lambda y, x, c: x/width*255*(c==1)+y/height*255*(c==2), (height, width, 3)).astype(np.uint8)
+    img_from_file = cv2.imread(args.file)
+    if img_from_file is not None:
+        image = cv2.resize(img_from_file, (width, height)) 
+    else:
+        image = np.fromfunction(lambda y, x, c: x/width*255*(c==1)+y/height*255*(c==2), (height, width, 3)).astype(np.uint8)
 
     win.imshow(image)
     cv2.waitKey(0)
