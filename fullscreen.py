@@ -1,5 +1,4 @@
 import cv2
-import numpy as np
 import screeninfo
 import os
 
@@ -21,7 +20,7 @@ class FullScreen:
             import subprocess
             subprocess.call(["/usr/bin/osascript", "-e", 'tell app "Finder" to set frontmost of process "Python" to true'])
 
-        img_dummy = np.zeros((self.height, self.width), dtype=np.uint8)
+        img_dummy = cv2.resize(0, (self.height, self.width)) #zero padding image
         self.imshow(img_dummy)
         cv2.waitKey(1)
 
@@ -34,6 +33,7 @@ class FullScreen:
         cv2.destroyWindow(self.name)
 
 def main():
+    import numpy as np
     import argparse
     parser = argparse.ArgumentParser()
     parser.add_argument("-f", "--file", type=str, default=None, help="Image file path")
