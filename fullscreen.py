@@ -20,9 +20,9 @@ class FullScreen:
             import subprocess
             subprocess.call(["/usr/bin/osascript", "-e", 'tell app "Finder" to set frontmost of process "Python" to true'])
 
-        img_dummy = cv2.resize(0, (self.height, self.width)) #zero padding image
+        img_dummy = cv2.resize(0, (self.width, self.height)) #zero padding image
         self.imshow(img_dummy)
-        cv2.waitKey(1)
+        cv2.waitKey(100)
 
     def imshow(self, image):
         if image.shape[0]!=self.height or image.shape[1]!=self.width:
