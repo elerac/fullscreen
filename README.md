@@ -16,10 +16,9 @@ window = FulScreen(monitor_id)
 width  = window.width
 height = window.height
 
-img_src = cv2.imread("image.png", 1)
-img_resized = cv2.resize(img_src, (width, height))
+image = cv2.imread("image.png", 1)
 
-window.imshow(img_resized)
+window.imshow(image)
 cv2.waitKey(0)
-windos.destroyWindow()
+window.destroyWindow()
 ```
