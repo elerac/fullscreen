@@ -9,16 +9,15 @@ Display the image in full screen.
 ## Usage
 ```python
 import cv2
-from fullscreen import FullScreen
+from fullscreen import *
 
-monitor_id = 0
-window = FulScreen(monitor_id)
-width  = window.width
-height = window.height
+screen = FulScreen(0)
+width  = screen.width
+height = screen.height
 
 image = cv2.imread("image.png", 1)
 
-window.imshow(image)
+screen.imshow(image)
 cv2.waitKey(0)
-window.destroyWindow()
+screen.destroyWindow()
 ```
