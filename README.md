@@ -11,7 +11,7 @@ Display the image in full screen.
 import cv2
 from fullscreen import *
 
-screen = FulScreen(0)
+screen = FullScreen(0)
 width  = screen.width
 height = screen.height
 
