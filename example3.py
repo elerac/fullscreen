@@ -15,7 +15,7 @@ def main():
     os.makedirs(OUTPUT_DIRNAME_CODE, exist_ok=True)
     os.makedirs(OUTPUT_DIRNAME_OBSERVE, exist_ok=True)
 
-    # Cameta setup (use your USB camera)
+    # Camera setup (use your USB camera)
     CAMERA_INDEX = 0
     camera = cv2.VideoCapture(CAMERA_INDEX)
 
