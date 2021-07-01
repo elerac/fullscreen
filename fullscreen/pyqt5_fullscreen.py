@@ -8,7 +8,6 @@ This program consists of two modules,
 import os
 import sys
 import argparse
-import threading
 import subprocess
 import importlib
 
@@ -35,7 +34,7 @@ def imwrite(filename, image):
 class FullScreen:
     """Full-screen with PyQt5 backend
     """
-    __tmp_filename = "tmp_pyqt5_fullscreen.png"
+    __tmp_filename = "__tmp_pyqt5_fullscreen.png"
 
     def __init__(self):
         app = QtWidgets.QApplication([])
@@ -52,11 +51,8 @@ class FullScreen:
         self.destroyWindow()
         
         imwrite(self.__tmp_filename, image)
-
-        processThread = threading.Thread(target=self._launch_fullscreen_app)
-        processThread.start()
-    
-    def _launch_fullscreen_app(self):
+        
+        # Launch fullscreen app
         python_bin = sys.executable
         py_filename = __file__
         tmp_filename = self.__tmp_filename
