@@ -42,21 +42,36 @@ screen = FullScreen(backend="cv2")
 ```
 
 ## Testing environment
-✅ macOS (Catalina), MacBook Pro (13-inch, 2017), Tkinter
+|      | OS | Hardware | Python | Backend |
+| ---- | ---- | ---- | ---- | ---- |
+|  ✅  | macOS Catalina |  MacBook Pro (13-inch, 2017)  |  3.8  |  Tkinter 8.6.11  |
+|  ✅  | macOS Catalina |  MacBook Pro (13-inch, 2017)  |  3.8  |  OpenCV-Python 4.4  |
+|  ❌  | macOS Catalina |  MacBook Pro (13-inch, 2017)  |  3.8  |  OpenCV-Python 4.5  |
+|  ✅  | macOS BigSur |  MacBook Pro (13-inch, 2017)  |  3.9  |  Tkinter 3.9.5  |
+|  ✅  | macOS BigSur |  MacBook Pro (13-inch, 2017)  |  3.7  |  Tkinter 8.5.9  |
+|  ❌  | macOS BigSur |  MacBook Pro (13-inch, 2017)  |  3.9  |  OpenCV-Python 4.4  |
+|  ❌  | macOS BigSur |  MacBook Pro (13-inch, 2017)  |  3.9  |  OpenCV-Python 4.5  |
+|  ✅  | macOS BigSur |  MacBook Pro (13-inch, 2017)  |  3.8  |  Tkinter 8.6.11  |
+|  ✅  | macOS BigSur |  Mac Pro (2019)  |  3.9  |  Tkinter 8.6.11  |
+|  ❌  | macOS BigSur |  Mac Pro (2019)  |  3.9  |  Tkinter 8.5.9  |
+|  ✅  | macOS BigSur |  Mac Pro (2019)  |  3.8  |  OpenCV-Python 4.4  |
+|  ❌  | macOS BigSur |  Mac Pro (2019)  |  3.8  |  OpenCV-Python 4.5  |
+|  ✅  | Windows 10 |  ThinkPad (L580)  |  3.9  |  Tkinter 8.6.9  |
+|  ✅  | Windows 10 |  ThinkPad (L580)  |  3.9  |  OpenCV-Python 4.4  |
+|  ✅  | Windows 10 |  ThinkPad (L580)  |  3.9  |  OpenCV-Python 4.5  |
+|  ✅  | Ubuntu 20 (GNOME) |   |  3.8  |  Tkinter 8.6.10 |
+|  ✅  | Ubuntu 20 (GNOME) |   |  3.8  |  OpenCV-Python 4.4  |
+|  🤔  | Ubuntu 20 (KDE) |   |  3.8  |  Tkinter 8.8.10 |
+|  ✅  | Ubuntu 20 (KDE) |   |  3.8  |  OpenCV-Python 4.4  |
 
-✅ macOS (Catalina), MacBook Pro (13-inch, 2017), OpenCV-Python (4.4)
+Although I have mainly tested on Mac, it should also work on Windows and Ubuntu as the software is cross-platform.
 
-❌ macOS (Catalina), MacBook Pro (13-inch, 2017), OpenCV-Python (4.5)
+To summarize the above table, the following cases do not seem to work well ❌,
+- Tkinter 8.5.9 does not work well on macOS. I think it is related to that [the Apple-supplied Tcl/Tk 8.5 has serious bugs](https://www.python.org/download/mac/tcltk/).
+- OpenCV-Python 4.5 does not work well on macOS. I think it is related to that [Qt support has been dropped](https://github.com/opencv/opencv-python/releases/tag/48).
 
-✅  macOS (BigSur), MacBook Pro (13-inch, 2017), Tkinter
-
-❌ macOS (BigSur), MacBook Pro (13-inch, 2017), OpenCV-Python (4.4)
-
-❌ macOS (BigSur), MacBook Pro (13-inch, 2017), OpenCV-Python (4.5)
-
-✅  macOS (BigSur), MacPro (2019), OpenCV-Python (4.4)
-
-Although I have only tested on Mac, it should also work on Windows and Ubuntu as the software is cross-platform.
+In some cases, it works but may not be perfect 🤔, 
+- On Ubuntu, Tkinter could not display the first image, but the second and later images work well.
 
 ## ToDo
 - Stable support for multiple monitors.
