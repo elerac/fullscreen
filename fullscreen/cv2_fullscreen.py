@@ -6,7 +6,7 @@ class FullScreen:
     """Full-screen with OpenCV High-level GUI backend
     """
     
-    delay : int = 5 # internal delay time after imshow
+    delay : int = 1 # internal delay time after imshow
 
     def __init__(self, screen_id: int = 0):
         self.monitor = screeninfo.get_monitors()[screen_id]
@@ -57,6 +57,7 @@ class FullScreen:
 
         cv2.imshow(self.name, image)
         cv2.waitKey(self.delay)
+        cv2.waitKey(self.delay) # magic
 
     def destroyWindow(self):
         cv2.destroyWindow(self.name)
