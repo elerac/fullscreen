@@ -47,20 +47,19 @@ screen = FullScreen(backend="cv2")
 |  ✅  | macOS Catalina |  MacBook Pro (13-inch, 2017)  |  3.8  |  Tkinter 8.6.11  |
 |  ✅  | macOS Catalina |  MacBook Pro (13-inch, 2017)  |  3.8  |  OpenCV-Python 4.4  |
 |  ❌  | macOS Catalina |  MacBook Pro (13-inch, 2017)  |  3.8  |  OpenCV-Python 4.5  |
-|  ✅  | macOS BigSur |  MacBook Pro (13-inch, 2017)  |  3.9  |  Tkinter 3.9.5  |
-|  ✅  | macOS BigSur |  MacBook Pro (13-inch, 2017)  |  3.7  |  Tkinter 8.5.9  |
+|  ❌  | macOS BigSur |  MacBook Pro (13-inch, 2017)  |  3.7  |  Tkinter 8.5.9  |
+|  ✅  | macOS BigSur |  MacBook Pro (13-inch, 2017)  |  3.9  |  Tkinter 8.6.11  |
 |  ❌  | macOS BigSur |  MacBook Pro (13-inch, 2017)  |  3.9  |  OpenCV-Python 4.4  |
 |  ❌  | macOS BigSur |  MacBook Pro (13-inch, 2017)  |  3.9  |  OpenCV-Python 4.5  |
-|  ✅  | macOS BigSur |  MacBook Pro (13-inch, 2017)  |  3.8  |  Tkinter 8.6.11  |
-|  ✅  | macOS BigSur |  Mac Pro (2019)  |  3.9  |  Tkinter 8.6.11  |
 |  ❌  | macOS BigSur |  Mac Pro (2019)  |  3.9  |  Tkinter 8.5.9  |
+|  ✅  | macOS BigSur |  Mac Pro (2019)  |  3.9  |  Tkinter 8.6.11  |
 |  ✅  | macOS BigSur |  Mac Pro (2019)  |  3.8  |  OpenCV-Python 4.4  |
 |  ❌  | macOS BigSur |  Mac Pro (2019)  |  3.8  |  OpenCV-Python 4.5  |
 |  ✅  | Windows 10 |  ThinkPad (L580)  |  3.9  |  Tkinter 8.6.9  |
 |  ✅  | Windows 10 |  ThinkPad (L580)  |  3.9  |  OpenCV-Python 4.4  |
 |  ✅  | Windows 10 |  ThinkPad (L580)  |  3.9  |  OpenCV-Python 4.5  |
 |  ✅  | Ubuntu 20 (GNOME) |   |  3.8  |  Tkinter 8.6.10 |
-|  ✅  | Ubuntu 20 (GNOME) |   |  3.8  |  OpenCV-Python 4.4  |
+|  ✅  | Ubuntu 20 (GNOME) |   |  3.8  |  OpenCV-Python 4.5  |
 |  🤔  | Ubuntu 20 (KDE) |   |  3.8  |  Tkinter 8.8.10 |
 |  ✅  | Ubuntu 20 (KDE) |   |  3.8  |  OpenCV-Python 4.4  |
 
