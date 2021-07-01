@@ -31,30 +31,6 @@ class FullScreen:
         return self.height, self.width, 3
 
     def imshow(self, image: np.ndarray):
-        # Single int value case
-        if type(image) == int:
-            image = image/255.0
-
-        # Single float value case
-        if type(image) == float:
-            image = (image, image, image)
-        
-        # RGB value case
-        if isinstance(image, (tuple, list)):
-            if len(image) == 3:
-                image = np.full((self.height, self.width, 3), image)
-                if image.dtype == np.int64:
-                    image = image/255.0
-            else:
-                raise ValueError(f"The length of the {type(image)} must be 3: {len(image)}")
-
-        # Image case
-        if type(image) == np.ndarray:
-            if image.shape[0] != self.height or image.shape[1] != self.width:
-                image = cv2.resize(image, (self.width, self.height), interpolation=cv2.INTER_NEAREST)
-        else:
-            raise TypeError(f"'image' must be 'np.ndarray' type: {type(image)}")
-
         cv2.imshow(self.name, image)
         cv2.waitKey(self.delay)
         cv2.waitKey(self.delay) # magic
