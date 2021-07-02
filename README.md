@@ -1,6 +1,8 @@
 # FullScreen
 Display image in fullscreen for the projector-camera system.
 
+![example3-gif](documents/fullscreen_overview.gif)
+
 Python has some GUI tools, but only a few of them are suitable for fullscreen display. In this repository, *Tkinter* or *OpenCV* is used as the backend. The best backend depends on the environment (i.e. OS, monitor, version of software), so choose the best one for you.
 
 ## Requirement
