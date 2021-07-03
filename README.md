@@ -3,7 +3,7 @@ Display image in fullscreen for the projector-camera system.
 
 ![example3-gif](documents/fullscreen_overview.gif)
 
-Python has some GUI tools, but only a few of them are suitable for fullscreen display. In this repository, *Tkinter* or *OpenCV* is used as the backend. The best backend depends on the environment (i.e. OS, monitor, version of software), so choose the best one for you.
+Python has some GUI tools, but only a few of them are suitable for fullscreen display. In this repository, *Tkinter* or *OpenCV* or *PyQt5* can be used as the backend. The best backend depends on the environment (i.e., OS, monitor, version of the software), so choose the best one for you.
 
 ## Requirement
 ### Tkinter backend (default)
@@ -12,6 +12,10 @@ Python has some GUI tools, but only a few of them are suitable for fullscreen di
 ### OpenCV backend (optional)
 - OpenCV
 - screeninfo (from https://github.com/rr-/screeninfo)
+
+### PyQt5 backend (optional)
+- Pillow (PIL) or OpenCV
+- PyQt5
 
 ## Usage
 
@@ -42,6 +46,9 @@ screen = FullScreen(backend="tkinter") # default
 ```python
 screen = FullScreen(backend="cv2")
 ```
+```python
+screen = FullScreen(backend="PyQt5")
+```
 
 ## Testing environment
 |      | OS | Hardware | Python | Backend |
@@ -49,6 +56,7 @@ screen = FullScreen(backend="cv2")
 |  ✅  | macOS Catalina |  MacBook Pro (13-inch, 2017)  |  3.8  |  Tkinter 8.6.11  |
 |  ✅  | macOS Catalina |  MacBook Pro (13-inch, 2017)  |  3.8  |  OpenCV-Python 4.4  |
 |  ❌  | macOS Catalina |  MacBook Pro (13-inch, 2017)  |  3.8  |  OpenCV-Python 4.5  |
+|  ✅  | macOS Catalina |  MacBook Pro (13-inch, 2017)  |  3.8  |  PyQt5 5.15  |
 |  ❌  | macOS BigSur |  MacBook Pro (13-inch, 2017)  |  3.7  |  Tkinter 8.5.9  |
 |  ✅  | macOS BigSur |  MacBook Pro (13-inch, 2017)  |  3.9  |  Tkinter 8.6.11  |
 |  ❌  | macOS BigSur |  MacBook Pro (13-inch, 2017)  |  3.9  |  OpenCV-Python 4.4  |
