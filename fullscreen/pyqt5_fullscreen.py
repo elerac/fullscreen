@@ -31,6 +31,15 @@ def imwrite(filename, image):
     else:
         cv2.imwrite(filename, image)
 
+def resize(image, size):
+    width, height = size
+    if is_pillow_available:
+        pil_img = Image.fromarray(image)
+        pil_img = pil_img.resize((width, height), Image.NEAREST)
+        return np.array(pil_img)
+    else:
+        return cv2.resize(image, (width, height), interpolation=cv2.INTER_NEAREST)
+
 class FullScreen:
     """Full-screen with PyQt5 backend
     """
@@ -49,6 +58,9 @@ class FullScreen:
     
     def imshow(self, image):
         self.destroyWindow()
+        
+        if image.shape[:2] != self.shape[:2]:
+            image = resize(image, (self.width, self.height))
         
         imwrite(self.__tmp_filename, image)
         
