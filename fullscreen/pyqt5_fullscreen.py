@@ -86,6 +86,7 @@ class FullScreen:
                 timer.timeout.connect(self.update_image)
                 timer.start(1000.0/f) # ms
                 
+                self.setCursor(QtCore.Qt.BlankCursor)
                 self.showFullScreen()
 
             def __del__(self):
