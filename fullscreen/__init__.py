@@ -1,6 +1,5 @@
 def FullScreen(backend="tkinter", **kwargs):
-    """Provide FullScreen instance
-    """
+    """Provide FullScreen instance"""
     if backend == "tkinter":
         from . import tkinter_fullscreen
         return tkinter_fullscreen.FullScreen()

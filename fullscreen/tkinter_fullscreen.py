@@ -2,9 +2,9 @@ import tkinter as tk
 from PIL import Image, ImageTk
 import numpy as np
 
+
 class FullScreen:
-    """Full-screen with Tkinter backend
-    """
+    """Full-screen with Tkinter backend"""
 
     def __init__(self):
         self._root = tk.Tk()
@@ -22,41 +22,40 @@ class FullScreen:
             self.__del__()
 
         self._label.bind("<Key>", key_event)
-        self._label.focus_set() 
+        self._label.focus_set()
 
         self._root.update()
-    
+
     def __del__(self):
         self._root.destroy()
-    
+
     @property
     def width(self):
         return self._root.winfo_width()
-    
+
     @property
     def height(self):
         return self._root.winfo_height()
-    
+
     @property
     def shape(self):
         return self.height, self.width, 3
 
     def imshow(self, image: np.ndarray):
         tk_img = self._cvt_ndarray_to_tkimage(image)
-        
+
         self._label.image = tk_img
         self._label.configure(image=tk_img)
-        
+
         self._root.update_idletasks()
         self._root.update()
-    
+
     def _cvt_ndarray_to_tkimage(self, image: np.ndarray) -> ImageTk.PhotoImage:
-        """Convert ndarray data to PhotoImage using PIL
-        """
+        """Convert ndarray data to PhotoImage using PIL"""
         if image.ndim == 2:
-            img_rgb = np.dstack([image]*3) # Gray -> RGB
+            img_rgb = np.dstack([image] * 3)  # Gray -> RGB
         else:
-            img_rgb = image[:, :, ::-1] # BGR -> RGB
+            img_rgb = image[:, :, ::-1]  # BGR -> RGB
 
         pil_img = Image.fromarray(img_rgb, mode="RGB")
         if pil_img.size != (self.width, self.height):
